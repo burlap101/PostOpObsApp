@@ -3,6 +3,8 @@ package cosc570.project.pooa.adapters
 
 import android.content.Intent
 import android.database.Cursor
+import android.net.Uri
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,11 +12,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import cosc570.project.pooa.EditObservation
-import cosc570.project.pooa.ObservationListActivity
-import cosc570.project.pooa.R
 import cosc570.project.pooa.data.dataclasses.Observation
 import cosc570.project.pooa.data.interfaces.ObservationsContract
 import kotlinx.android.synthetic.main.observation_list_item.view.*
+
 
 /**
  * [RecyclerView.Adapter] that can display a [Observation] and makes a call to the
@@ -31,7 +32,7 @@ class ObservationRecyclerViewAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         Log.d(TAG, "onCreateViewHolder: new view requested")
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.observation_list_item, parent, false)
+            .inflate(cosc570.project.pooa.R.layout.observation_list_item, parent, false)
         return ViewHolder(view)
     }
 
@@ -97,7 +98,14 @@ class ObservationRecyclerViewAdapter(
         }
 
         override fun onClick(v: View) {
-            Log.d(TAG, "onClick: only clicked the text")
+            val url = mView.oli_url.text.toString()
+            Log.d(TAG, "onClick: going to $url")
+            if(url.isNotEmpty()) {
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                v.context.startActivity(browserIntent)
+            } else {
+                Snackbar.make(v, "No URL specified for this observation", Snackbar.LENGTH_LONG).show()
+            }
         }
     }
 }

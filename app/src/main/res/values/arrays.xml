@@ -3,7 +3,8 @@
     <string-array name="edit_ob_action">
         <item>Append Special Note</item>
         <item>Replace Special Note</item>
-        <item>Change Name</item>
+        <item>Change Observation Name</item>
+        <item>Change URL</item>
         <item>Delete</item>
     </string-array>
 </resources>

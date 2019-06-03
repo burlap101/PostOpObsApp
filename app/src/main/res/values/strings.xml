@@ -98,7 +98,7 @@
     <string name="add_ob_title">Add Observation</string>
     <string name="submit">Submit</string>
     <string name="addedit_url_hint">URL (optional)</string>
-    <string name="addedit_surgery_hint">Surgery</string>
+    <string name="addedit_surgery_hint">Procedure</string>
     <string name="addedit_observation_hint">Observation</string>
     <string name="popular_obs_title">Popular Obs</string>
     <string name="popular_procedures_title">Popular Procedures</string>

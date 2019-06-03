@@ -33,6 +33,25 @@ class ObservationListActivity : AppCompatActivity() {
             ola_procedure_name.text = intentBundle.getString("PROCEDURE_NAME")
         }
 
+        refreshObsList()
+    }
+
+    fun onAddClicked(view: View) {
+        val addIntent = Intent(view.context, AddObservation::class.java)
+
+        addIntent.putExtra("PROCEDURE_ID", ola_procedure_id.text)
+        addIntent.putExtra("PROCEDURE_NAME", ola_procedure_name.text)
+        view.context.startActivity(addIntent)
+    }
+
+    override fun onResume() {
+        Log.d(TAG, "onResume: starts")
+        super.onResume()
+        refreshObsList()
+
+    }
+
+    private fun refreshObsList () {
         val selectionArgsOp = arrayOf(ola_procedure_id.text.toString())
         Log.d(TAG, "procedure id: ${ola_procedure_id.text}")
         val opCursor = contentResolver.query(
@@ -73,19 +92,5 @@ class ObservationListActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = viewManager
         recyclerView.adapter = viewAdapter
-    }
-
-    fun onAddClicked(view: View) {
-        val addIntent = Intent(view.context, AddObservation::class.java)
-
-        addIntent.putExtra("PROCEDURE_ID", ola_procedure_id.text)
-        addIntent.putExtra("PROCEDURE_NAME", ola_procedure_name.text)
-        view.context.startActivity(addIntent)
-    }
-
-    override fun onResume() {
-        Log.d(TAG, "onResume: starts")
-        super.onResume()
-
     }
 }

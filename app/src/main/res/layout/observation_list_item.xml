@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:id="@+id/linearLayout2" android:paddingTop="8sp">
 
     <TextView
             android:id="@+id/item_number"
-            android:layout_width="20dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:layout_marginStart="8dp"/>
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="parent" app:layout_constraintBottom_toTopOf="parent"/>
 
     <TextView
             android:id="@+id/content"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:layout_marginStart="8dp"/>
+            app:layout_constraintEnd_toStartOf="@+id/special_notes"
+            app:layout_constraintTop_toTopOf="@+id/special_notes"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"/>
     <TextView
             android:id="@+id/special_notes"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
             android:textAppearance="?attr/textAppearanceListItem"
-            android:layout_marginStart="16dp"/>
+            app:layout_constraintStart_toEndOf="@+id/content" app:layout_constraintEnd_toStartOf="@+id/oli_edit_btn"
+            app:layout_constraintTop_toTopOf="@+id/oli_edit_btn"
+            android:layout_marginEnd="16dp"/>
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/oli_edit_btn"
-            android:layout_marginStart="20dp" android:src="@android:drawable/ic_menu_edit"/>
-</LinearLayout>
+            android:src="@android:drawable/ic_menu_edit"
+            app:layout_constraintStart_toEndOf="@+id/special_notes" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="3dp"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/oli_url"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="parent" app:layout_constraintBottom_toTopOf="parent"/>
+</android.support.constraint.ConstraintLayout>
