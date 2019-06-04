@@ -11,34 +11,39 @@
             android:text="Add Observation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/textView5" android:textSize="24sp"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/ao_procedure_tv" android:hint="@string/addedit_surgery_hint" android:textSize="18sp"
+            android:paddingTop="8dp" android:paddingBottom="8dp"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText2" android:hint="Surgery"/>
+            android:id="@+id/ao_obsevation_et" android:hint="Observation"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText3" android:hint="Observation"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText4" android:hint="URL"/>
+            android:id="@+id/ao_url_et" android:hint="URL"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:gravity="start|top"
             android:ems="10"
-            android:id="@+id/editText5" android:minLines="3"
+            android:id="@+id/ao_specialnotes_et" android:minLines="3"
             android:hint="Include any special notes here to let your peers know what to keep in mind :)"/>
     <Button
             android:text="@string/submit"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/button"/>
+            android:layout_height="wrap_content" android:id="@+id/ao_submit_btn" android:onClick="onSubmitClicked"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/ao_procedure_id" android:visibility="gone"/>
 </LinearLayout>

@@ -279,6 +279,16 @@ class AppProvider: ContentProvider() {
                 }
             }
 
+            OBSERVATIONPROCEDURE -> {
+                val db = AppDatabase.getInstance(context).writableDatabase
+                recordId = db.insert(ObservationProcedureContract.TABLE_NAME, null, values)
+                if(recordId!=-1L) {
+                    returnUri = ObservationProcedureContract.buildUriFromId(recordId)
+                } else {
+                    throw SQLException("Failed to insert, Uri was $uri")
+                }
+            }
+
             else -> throw IllegalArgumentException("Unknown uri: $uri")
         }
 

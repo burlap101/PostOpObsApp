@@ -62,6 +62,7 @@ class ObservationRecyclerViewAdapter(
             holder.mIdView.text = observation.id.toString()
             holder.mContentView.text = observation.name
             holder.mSpecialNotesView.text = observation.specialNotes
+            holder.mUrlView.text = observation.url
         }
 
 
@@ -80,6 +81,7 @@ class ObservationRecyclerViewAdapter(
         val mIdView: TextView = mView.item_number
         val mContentView: TextView = mView.content
         val mSpecialNotesView: TextView = mView.special_notes
+        val mUrlView: TextView = mView.oli_url
 
         override fun toString(): String {
             return super.toString() + " '" + mContentView.text + "'"
@@ -98,10 +100,10 @@ class ObservationRecyclerViewAdapter(
         }
 
         override fun onClick(v: View) {
-            val url = mView.oli_url.text.toString()
+            val url = mUrlView.text
             Log.d(TAG, "onClick: going to $url")
             if(url.isNotEmpty()) {
-                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url.toString()))
                 v.context.startActivity(browserIntent)
             } else {
                 Snackbar.make(v, "No URL specified for this observation", Snackbar.LENGTH_LONG).show()
